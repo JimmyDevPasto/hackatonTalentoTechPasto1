@@ -1132,3 +1132,13 @@ ul.link_menu li a:hover {
 .in_page .header {
      border-bottom: #3fe43d solid 2px;
 }
+
+.service_box .content {
+     max-height: 100px; /* Altura máxima cuando está contraído */
+     overflow: hidden;
+     transition: max-height 0.3s ease;
+ }
+ 
+ .service_box .content.expanded {
+     max-height: 1000px; /* Ajusta según el contenido máximo esperado */
+ }
