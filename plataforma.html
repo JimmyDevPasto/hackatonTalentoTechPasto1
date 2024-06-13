@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>CrediAvanza</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <link rel="icon" href="images/favicon.png" type="image/x-icon">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-      <style>
-         .login-form {
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>CrediAvanza</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif"/>
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+        .login-form {
             max-width: 400px;
             margin: 50px auto;
             padding: 30px;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         }
-         .login-form h2 {
+        }
+        .login-form h2 {
             margin-bottom: 20px;
-         }
-         .login-form .form-group {
+        }
+        .login-form .form-group {
             margin-bottom: 15px;
-         }
-         .login-form .form-control {
+        }
+        .login-form .form-control {
             border-radius: 5px;
-         }
-         .login-form .btn {
+        }
+        .login-form .btn {
             border-radius: 5px;
-         }
-         .login-form .forgot-password {
+        }
+        .login-form .forgot-password {
             display: block;
             margin-top: 10px;
             text-align: right;
-         }
-         .login-form .logo {
+        }
+        .login-form .logo {
             text-align: center;
             margin-bottom: 20px;
-         }
-         .login-form .logo img {
+        }
+        .login-form .logo img {
             width: 100px;
-         }
-         .header {
+        }
+        .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px;
             background-color: #333;
             color: #fff;
-         }
-         .user-profile {
+        }
+        .user-profile {
             display: flex;
             align-items: center;
-         }
-         .user-profile img {
+        }
+        .user-profile img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 10px;
-         }
-         .user-profile .dropdown-menu {
+        }
+        .user-profile .dropdown-menu {
             right: 0;
             left: auto;
-         }
-         .sidebar {
+        }
+        .sidebar {
             width: 250px;
             background-color: #444;
             position: fixed;
@@ -93,100 +95,338 @@
             left: 0;
             padding-top: 60px;
             color: #fff;
-         }
-         .sidebar ul {
+        }
+        .sidebar ul {
             list-style: none;
             padding: 0;
-         }
-         .sidebar ul li {
+        }
+        .sidebar ul li {
             padding: 15px 20px;
-         }
-         .sidebar ul li a {
+        }
+        .sidebar ul li a {
             color: #fff;
             text-decoration: none;
             display: flex;
             align-items: center;
-         }
-         .sidebar ul li a i {
+        }
+        .sidebar ul li a i {
             margin-right: 10px;
-         }
-         .content {
+        }
+        .content {
             margin-left: 250px;
             padding: 20px;
-         }
-         .hamburger-menu {
+        }
+        .hamburger-menu {
             display: none;
-         }
-         @media (max-width: 768px) {
+        }
+        @media (max-width: 768px) {
             .sidebar {
-               display: none;
+                display: none;
             }
             .hamburger-menu {
-               display: block;
-               cursor: pointer;
+                display: block;
+                cursor: pointer;
             }
             .content {
-               margin-left: 0;
+                margin-left: 0;
             }
-         }
-      </style>
-   </head>
-   <!-- body -->
-   <body class="main-layout in_page">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="header">
-            <div class="hamburger-menu">
-               <i class="fa fa-bars" aria-hidden="true"></i>
+        }
+        .prediction-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        .prediction-form .form-group {
+            margin-bottom: 15px;
+        }
+        .prediction-form .btn {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<!-- body -->
+<body class="main-layout in_page">
+<!-- loader  -->
+<div class="loader_bg">
+    <div class="loader"><img src="images/loading.gif" alt="#"/></div>
+</div>
+<!-- end loader -->
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="header">
+        <div class="hamburger-menu">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="user-profile dropdown">
+            <img src="icon/user.png" alt="User Image"/>
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                Perfil
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Configuración</a>
+                <a class="dropdown-item" href="#">Cerrar sesión</a>
             </div>
-            <div class="user-profile dropdown">
-               <img src="icon/user.png" alt="User Image" />
-               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Perfil
-               </a>
-               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Configuración</a>
-                  <a class="dropdown-item" href="#">Cerrar sesión</a>
-               </div>
+        </div>
+    </div>
+</header>
+<!-- end header inner -->
+<!-- end header -->
+<!-- sidebar -->
+<div class="sidebar">
+    <ul>
+        <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Finanzas</a></li>
+        <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Gastos</a></li>
+        <li><a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Ventas</a></li>
+        <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Plataforma Estratégica</a></li>
+        <li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Solicitud de Crédito</a></li>
+        <li><a href="#"><i class="fa fa-handshake-o" aria-hidden="true"></i> Entidades Bancarias</a></li>
+        <li><a href="#"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> IA</a></li>
+        <li><a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+    </ul>
+</div>
+<!-- end sidebar -->
+<!-- content -->
+<div class="content">
+    <div class="prediction-form">
+        <h2>Predicción de Crédito</h2>
+        <form id="creditoForm">
+            <div class="form-group">
+                <label for="ventas">Ventas</label>
+                <input type="number" class="form-control" id="ventas" required>
             </div>
-         </div>
-      </header>
-      <!-- end header inner -->
-      <!-- end header -->
-      <!-- sidebar -->
-      <div class="sidebar">
-         <ul>
-            <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Finanzas</a></li>
-            <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Gastos</a></li>
-            <li><a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Ventas</a></li>
-            <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Plataforma Estratégica</a></li>
-            <li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Solicitud de Crédito</a></li>
-            <li><a href="#"><i class="fa fa-handshake-o" aria-hidden="true"></i> Entidades Bancarias</a></li>
-         </ul>
-      </div>
-      <!-- end sidebar -->
-     
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <script>
-         $(document).ready(function(){
-            $('.hamburger-menu').click(function(){
-               $('.sidebar').toggle();
-            });
-         });
-      </script>
-   </body>
+            <div class="form-group">
+                <label for="gastos">Gastos</label>
+                <input type="number" class="form-control" id="gastos" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predecir</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+</div>
+<!-- end content -->
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="creditoModal" tabindex="-1" role="dialog" aria-labelledby="creditoModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="creditoModalLabel">Resultado de la evaluación de crédito</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+           </div>
+           <div class="modal-body" id="modal-body">
+               <!-- El mensaje se actualizará dinámicamente aquí -->
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- end Modal -->
+<!-- Javascript files-->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.hamburger-menu').click(function () {
+            $('.sidebar').toggleClass('active');
+        });
+    });
+</script>
+<script>
+    // Datos de ejemplo
+    const data = [
+        { ventas: 10000, gastos: 4000, aprobado: 1 },
+        { ventas: 5000, gastos: 4500, aprobado: 0 },
+        { ventas: 12000, gastos: 3000, aprobado: 1 },
+        { ventas: 6000, gastos: 5000, aprobado: 0 },
+        { ventas: 15000, gastos: 2000, aprobado: 1 },
+        { ventas: 8000, gastos: 7000, aprobado: 0 },
+        { ventas: 9000, gastos: 3000, aprobado: 1 },
+        { ventas: 7000, gastos: 6000, aprobado: 0 },
+        { ventas: 11000, gastos: 4000, aprobado: 1 },
+        { ventas: 4000, gastos: 3500, aprobado: 0 },
+        { ventas: 13000, gastos: 2500, aprobado: 1 },
+        { ventas: 10000, gastos: 8500, aprobado: 0 },
+        { ventas: 14000, gastos: 2000, aprobado: 1 },
+        { ventas: 7500, gastos: 6500, aprobado: 0 },
+        { ventas: 16000, gastos: 5000, aprobado: 1 },
+        { ventas: 8500, gastos: 8000, aprobado: 0 },
+        { ventas: 17500, gastos: 3000, aprobado: 1 },
+        { ventas: 9500, gastos: 9000, aprobado: 0 },
+        { ventas: 18000, gastos: 2500, aprobado: 1 },
+        { ventas: 10500, gastos: 9500, aprobado: 0 },
+        { ventas: 19000, gastos: 2000, aprobado: 1 },
+        { ventas: 11500, gastos: 10000, aprobado: 0 },
+        { ventas: 20000, gastos: 3000, aprobado: 1 },
+        { ventas: 12500, gastos: 10500, aprobado: 0 },
+        { ventas: 21000, gastos: 2500, aprobado: 1 },
+        { ventas: 13500, gastos: 11000, aprobado: 0 },
+        { ventas: 22000, gastos: 1500, aprobado: 1 },
+        { ventas: 14500, gastos: 12000, aprobado: 0 },
+        { ventas: 23000, gastos: 1000, aprobado: 1 },
+        { ventas: 15500, gastos: 13000, aprobado: 0 },
+        { ventas: 24000, gastos: 3000, aprobado: 1 },
+        { ventas: 16500, gastos: 14000, aprobado: 0 },
+        { ventas: 25000, gastos: 2000, aprobado: 1 },
+        { ventas: 17500, gastos: 15000, aprobado: 0 },
+        { ventas: 26000, gastos: 1000, aprobado: 1 },
+        { ventas: 18500, gastos: 16000, aprobado: 0 },
+        { ventas: 27000, gastos: 4000, aprobado: 1 },
+        { ventas: 19500, gastos: 17000, aprobado: 0 },
+        { ventas: 28000, gastos: 3000, aprobado: 1 },
+        { ventas: 20500, gastos: 18000, aprobado: 0 },
+        { ventas: 29000, gastos: 2000, aprobado: 1 },
+        { ventas: 21500, gastos: 19000, aprobado: 0 },
+        { ventas: 30000, gastos: 1000, aprobado: 1 },
+        { ventas: 22500, gastos: 20000, aprobado: 0 },
+        { ventas: 31000, gastos: 5000, aprobado: 1 },
+        { ventas: 23500, gastos: 21000, aprobado: 0 },
+        { ventas: 32000, gastos: 4000, aprobado: 1 },
+        { ventas: 24500, gastos: 22000, aprobado: 0 },
+        { ventas: 33000, gastos: 3000, aprobado: 1 },
+        { ventas: 25500, gastos: 23000, aprobado: 0 },
+        { ventas: 34000, gastos: 2000, aprobado: 1 },
+        { ventas: 26500, gastos: 24000, aprobado: 0 },
+        { ventas: 35000, gastos: 1000, aprobado: 1 },
+        { ventas: 27500, gastos: 25000, aprobado: 0 },
+        { ventas: 36000, gastos: 5000, aprobado: 1 },
+        { ventas: 28500, gastos: 26000, aprobado: 0 },
+        { ventas: 37000, gastos: 4000, aprobado: 1 },
+        { ventas: 29500, gastos: 27000, aprobado: 0 },
+        { ventas: 38000, gastos: 3000, aprobado: 1 },
+        { ventas: 30500, gastos: 28000, aprobado: 0 },
+        { ventas: 39000, gastos: 2000, aprobado: 1 },
+        { ventas: 31500, gastos: 29000, aprobado: 0 },
+        { ventas: 40000, gastos: 1000, aprobado: 1 },
+        { ventas: 32500, gastos: 30000, aprobado: 0 },
+        { ventas: 41000, gastos: 5000, aprobado: 1 },
+        { ventas: 33500, gastos: 31000, aprobado: 0 },
+        { ventas: 42000, gastos: 4000, aprobado: 1 },
+        { ventas: 34500, gastos: 32000, aprobado: 0 },
+        { ventas: 43000, gastos: 3000, aprobado: 1 },
+        { ventas: 35500, gastos: 33000, aprobado: 0 },
+        { ventas: 44000, gastos: 2000, aprobado: 1 },
+        { ventas: 36500, gastos: 34000, aprobado: 0 },
+        { ventas: 45000, gastos: 1000, aprobado: 1 },
+        { ventas: 37500, gastos: 35000, aprobado: 0 },
+        { ventas: 46000, gastos: 5000, aprobado: 1 },
+        { ventas: 38500, gastos: 36000, aprobado: 0 },
+        { ventas: 47000, gastos: 4000, aprobado: 1 },
+        { ventas: 39500, gastos: 37000, aprobado: 0 },
+        { ventas: 48000, gastos: 3000, aprobado: 1 },
+        { ventas: 40500, gastos: 38000, aprobado: 0 },
+        { ventas: 49000, gastos: 2000, aprobado: 1 },
+        { ventas: 41500, gastos: 39000, aprobado: 0 },
+        { ventas: 50000, gastos: 1000, aprobado: 1 },
+        { ventas: 42500, gastos: 40000, aprobado: 0 },
+        { ventas: 51000, gastos: 5000, aprobado: 1 },
+        { ventas: 43500, gastos: 41000, aprobado: 0 },
+        { ventas: 52000, gastos: 4000, aprobado: 1 },
+        { ventas: 44500, gastos: 42000, aprobado: 0 },
+        { ventas: 53000, gastos: 3000, aprobado: 1 },
+        { ventas: 45500, gastos: 43000, aprobado: 0 },
+        { ventas: 54000, gastos: 2000, aprobado: 1 },
+        { ventas: 46500, gastos: 44000, aprobado: 0 },
+        { ventas: 55000, gastos: 1000, aprobado: 1 },
+        { ventas: 47500, gastos: 45000, aprobado: 0 }
+    ];
+
+    // Convertir los datos a utilidad y crear tensores
+    const utilidades = data.map(d => d.ventas - d.gastos);
+    const aprobados = data.map(d => d.aprobado);
+
+    const xs = tf.tensor2d(utilidades, [utilidades.length, 1]);
+    const ys = tf.tensor2d(aprobados, [aprobados.length, 1]);
+
+    // Definir el modelo
+    const model = tf.sequential();
+    model.add(tf.layers.dense({ units: 1, inputShape: [1], activation: 'sigmoid' }));
+
+    // Compilar el modelo
+    model.compile({
+        optimizer: tf.train.adam(),
+        loss: 'binaryCrossentropy',
+        metrics: ['accuracy']
+    });
+
+    // Entrenar el modelo
+    async function trainModel() {
+        await model.fit(xs, ys, {
+            epochs: 100,
+            callbacks: tf.callbacks.earlyStopping({ monitor: 'loss' })
+        });
+        console.log('Entrenamiento completado');
+    }
+
+    trainModel();
+
+    // Hacer predicciones
+    async function predictApproval(ventas, gastos) {
+        const utilidad = ventas - gastos;
+        const prediction = model.predict(tf.tensor2d([utilidad], [1, 1]));
+        const result = await prediction.data();
+        return result[0]; // Devuelve la probabilidad de aprobación
+    }
+
+    // Función para actualizar la predicción cuando se cambian los valores
+    async function updatePrediction() {
+        const ventas = parseFloat(document.getElementById('ventas').value);
+        const gastos = parseFloat(document.getElementById('gastos').value);
+        const resultado = await predictApproval(ventas, gastos);
+        document.getElementById('resultado').innerText = `Probabilidad de aprobación del crédito: ${resultado.toFixed(2)}`;
+    }
+
+    // Manejar el formulario
+    document.getElementById('creditoForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const ventas = parseFloat(document.getElementById('ventas').value);
+        const gastos = parseFloat(document.getElementById('gastos').value);
+        const resultado = await predictApproval(ventas, gastos);
+        document.getElementById('resultado').innerText = `Probabilidad de aprobación del crédito: ${resultado.toFixed(2)}`;
+    });
+
+    // Función para actualizar la predicción cuando se cambian los valores
+async function updatePrediction() {
+    const ventas = parseFloat(document.getElementById('ventas').value);
+    const gastos = parseFloat(document.getElementById('gastos').value);
+    const resultado = await predictApproval(ventas, gastos);
+    mostrarResultadoModal(resultado);
+}
+
+// Manejar el formulario
+document.getElementById('creditoForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const ventas = parseFloat(document.getElementById('ventas').value);
+    const gastos = parseFloat(document.getElementById('gastos').value);
+    const resultado = await predictApproval(ventas, gastos);
+    mostrarResultadoModal(resultado);
+});
+
+// Mostrar resultado en el modal
+function mostrarResultadoModal(resultado) {
+    const modalBody = document.getElementById('modal-body');
+    if (resultado >= 0.5) {
+        modalBody.innerText = "Usuario apto para crédito";
+    } else {
+        modalBody.innerText = "Usuario no apto para crédito";
+    }
+    $('#creditoModal').modal('show');
+}
+</script>
+</body>
 </html>
